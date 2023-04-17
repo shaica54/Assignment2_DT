@@ -8,16 +8,17 @@ public class Container{
 	private Container nextX;
 	private Container prevY;
 	private Container nextY;
-	private Container correspondingX; //Container of first linkedlist has pointer for the container that includes the same point in the second linked list
-	private Container correspondingY;
+	// NOT NEEDED - private Container correspondingX; //Container of first linkedlist has pointer for the container that includes the same point in the second linked list
+	// NOT NEEDED - private Container correspondingY;
+	// לא רציתי למחוק בלי שתראי
 	
 	
-	public Container(Point point,Container nextX, Container prevX) {
-		this.data=point;
-		this.nextX=nextX;
-		this.prevX=prevX;
-		
-		// ----------- ??? ---------- HOW TO DO IT ALSO FOR y ?!?!?!?!?!?!!?!??!?
+	public Container (Point point, Container prevX, Container nextX, Container prevY, Container nextY) {
+		this.data = point;
+		this.prevX = prevX;
+		this.nextX = nextX;
+		this.prevY = prevY;
+		this.nextY = nextY
 	}
 	
 	//Constructor of first link
