@@ -8,54 +8,59 @@ public class Container{
 	private Container nextX;
 	private Container prevY;
 	private Container nextY;
-	// NOT NEEDED - private Container correspondingX; //Container of first linkedlist has pointer for the container that includes the same point in the second linked list
-	// NOT NEEDED - private Container correspondingY;
-	// לא רציתי למחוק בלי שתראי
+	private Boolean inRange;
 	
-	
-	public Container (Point point, Container prevX, Container nextX, Container prevY, Container nextY) {
+	public Container(Point point, Container prevX, Container nextX, Container prevY, Container nextY) {
 		this.data = point;
 		this.prevX = prevX;
 		this.nextX = nextX;
 		this.prevY = prevY;
-		this.nextY = nextY
+		this.nextY = nextY;
+		this.inRange = false;
 	}
 	
-	//Constructor of first link
+	//Constructor of new empty link
 	public Container(Point point) { 
-		this(point,null,null);
+		this(point, null, null, null, null);
 	}
 	//Don't delete or change this function
-	public Point getData()
-	{
+	public Point getData(){
 		return data;
 	}
 	
 	//Get Next\Prev X and Y
+	public Container getPrevX() {
+		return prevX;
+	}
 	public Container getNextX() {
 		return nextX;
+	}
+	public Container getPrevY() {
+		return prevY;
 	}
 	public Container getNextY() {
 		return nextY;
 	}
-	public Container getPrevX() {
-		return prevX;
-	}
-	public Container getPrevY() {
-		return nextY;
-	}
 	
 	//Set Next\Prev X and Y
-	public void setNextX(Container nextX) {
-		this.nextX=nextX;
-	}
-	public void setNextY(Container nextY) {
-		this.nextY=nextY;
-	}
 	public void setPrevX(Container prevX) {
 		this.prevX = prevX;
 	}
-	public void getPrevY(Container prevY) {
+	public void setNextX(Container nextX) {
+		this.nextX = nextX;
+	}
+	public void setPrevY(Container prevY) {
 		this.prevY = prevY;
 	}
+	public void setNextY(Container nextY) {
+		this.nextY = nextY;
+	}
+	public Boolean inRange() {
+		return inRange;
+	}
+	public void changeInRange(Boolean currStat) {
+		this.inRange = currStat;
+	}
+	
+	
 }
