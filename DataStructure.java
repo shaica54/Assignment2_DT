@@ -275,7 +275,67 @@ public class DataStructure implements DT {
 
 	@Override
 	public void narrowRange(int min, int max, Boolean axis) {
-		// TODO Auto-generated method stub
+	// TODO Auto-generated method stub
+		if(axis)
+			deleteFromX(min, max);
+		else
+			deleteFromY(min, max);
+	}
+	
+	public void deleteFromX(int min, int max) {
+		Container currMin = minX;
+		Container currMax = maxX;
+		
+		while(currMin != null && currMin.getData().getX() < min) {
+			currMin.changeInRange(true);
+			currMin = currMin.getNextX();
+		}
+		
+		while(currMax != null && currMax.getData().getX() > max) {
+			currMax.changeInRange(true);
+			currMax = currMax.getPrevX();
+		}
+		
+		// start of change Y
+		Container changeMinY = minY;
+		
+		while(changeMinY.inRange())
+			changeMinY = changeMinY.getNextY();
+		
+		minY = changeMinY;
+		
+		Container changeMaxY = maxY; 
+		
+		while(changeMaxY.inRange())
+			changeMaxY = changeMinY.getNextY();
+		
+		maxY = changeMaxY;
+		// end of change Y
+		
+		if(currMin == null | currMax == null | maxX.getData().getX() < min | minX.getData().getX() > max) {
+			minX = null;
+			minY = null;
+			maxX = null;
+			maxY = null;
+			return;
+		}
+		else if (currMin != minX) {
+			minX = currMin;
+			currMin.setPrevX(null);
+			currMin.setPrevY(null);
+		}
+	
+		
+		
+		else if (currMax != maxX) {
+			maxX = currMax;
+			currMax.setNextX(null);
+			currMax.setNextY(null);
+		}
+		
+	}
+
+	public void deleteFromY(int min, int max) {
 		
 	}
 
